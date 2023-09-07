@@ -70,12 +70,12 @@ namespace JwtWepApiCore.Controllers
                 // Add token to verify the user
                 var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                 var confirmationLink = Url.Action(nameof(confirmEmail), "Authentication", new { token, email = user.Email });
-                var message = new Message(new string[] { user.Email }, "ConfirmationEmailLink", confirmationLink);
+                var message = new Message(new string[] { user.Email }, "ConfirmationEmailLink", "https://localhost:7236" + confirmationLink);
 
-                //_emailServce.SendEmail(message);
+                _emailServce.SendEmail(message);
 
                 return StatusCode(StatusCodes.Status201Created,
-                    new ResponseMessage { Status = "Success", Message = $"User Created Succesfully and its Confirmation Link - {confirmationLink}" });
+                    new ResponseMessage { Status = "Success", Message = $"User Created Succesfully and its Confirmation Link send to - {user.Email}" });
 
 
             }
@@ -86,15 +86,15 @@ namespace JwtWepApiCore.Controllers
             }
         }
 
-        [HttpGet]
-        public ActionResult EmailSending()
-        {
-            var message = new Message(new string[] { "savanna54@ethereal.email" }, "Test", "<h1>Testing my by alagesh</h1>");
+        //[HttpGet]
+        //public ActionResult EmailSending(Message message)
+        //{
+        //    var message = new Message(message.To, message.Subject, message.Content);
 
-            _emailServce.SendEmail(message);
-            return StatusCode(StatusCodes.Status201Created,
-                    new ResponseMessage { Status = "Success", Message = "Email Send Successfully!" });
-        }
+        //    _emailServce.SendEmail(message);
+        //    return StatusCode(StatusCodes.Status201Created,
+        //            new ResponseMessage { Status = "Success", Message = "Email Send Successfully!" });
+        //}
 
         [HttpGet("ConfirmEmail")]
 

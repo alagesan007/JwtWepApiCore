@@ -3,10 +3,12 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace JwtWepApiCore.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialDbSetup : Migration
+    public partial class initialcommit : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -154,6 +156,16 @@ namespace JwtWepApiCore.Migrations
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "AspNetRoles",
+                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
+                values: new object[,]
+                {
+                    { "3a179994-26f6-4477-bc6e-054f64e0c29e", "1", "Admin", "Admin" },
+                    { "906688d8-4f67-4f4a-a69a-11deb1aa4e6c", "3", "Hr", "HR" },
+                    { "9857a35b-34ff-4acd-ba71-be3ddc434deb", "2", "User", "User" }
                 });
 
             migrationBuilder.CreateIndex(

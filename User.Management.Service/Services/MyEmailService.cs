@@ -37,7 +37,7 @@ namespace User.Management.Service.Services
             try
             {
                 
-                client.Connect(_emailConfig.SmtpServer, _emailConfig.Port, SecureSocketOptions.StartTls);
+                client.Connect(_emailConfig.SmtpServer, _emailConfig.Port,true);
                 client.Authenticate(_emailConfig.UserName, _emailConfig.Password);
                 client.Send(mailMessage);
             }

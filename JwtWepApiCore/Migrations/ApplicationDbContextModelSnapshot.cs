@@ -51,21 +51,21 @@ namespace JwtWepApiCore.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "b9e8dc46-3a0a-4b60-af83-fd398a7687ac",
+                            Id = "3a179994-26f6-4477-bc6e-054f64e0c29e",
                             ConcurrencyStamp = "1",
                             Name = "Admin",
                             NormalizedName = "Admin"
                         },
                         new
                         {
-                            Id = "560c355f-a929-46d5-8885-ab0e9691ce72",
+                            Id = "9857a35b-34ff-4acd-ba71-be3ddc434deb",
                             ConcurrencyStamp = "2",
                             Name = "User",
                             NormalizedName = "User"
                         },
                         new
                         {
-                            Id = "ef77134b-a2e3-4aba-88db-b55e7329f834",
+                            Id = "906688d8-4f67-4f4a-a69a-11deb1aa4e6c",
                             ConcurrencyStamp = "3",
                             Name = "Hr",
                             NormalizedName = "HR"

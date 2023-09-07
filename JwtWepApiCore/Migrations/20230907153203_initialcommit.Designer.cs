@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace JwtWepApiCore.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230906064550_InitialDbSetup")]
-    partial class InitialDbSetup
+    [Migration("20230907153203_initialcommit")]
+    partial class initialcommit
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -50,6 +50,29 @@ namespace JwtWepApiCore.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "3a179994-26f6-4477-bc6e-054f64e0c29e",
+                            ConcurrencyStamp = "1",
+                            Name = "Admin",
+                            NormalizedName = "Admin"
+                        },
+                        new
+                        {
+                            Id = "9857a35b-34ff-4acd-ba71-be3ddc434deb",
+                            ConcurrencyStamp = "2",
+                            Name = "User",
+                            NormalizedName = "User"
+                        },
+                        new
+                        {
+                            Id = "906688d8-4f67-4f4a-a69a-11deb1aa4e6c",
+                            ConcurrencyStamp = "3",
+                            Name = "Hr",
+                            NormalizedName = "HR"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
